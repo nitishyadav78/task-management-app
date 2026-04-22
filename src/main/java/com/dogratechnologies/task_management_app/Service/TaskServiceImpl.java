@@ -1,10 +1,10 @@
-package Service;
-import EntityPackage.Task;
-import ExceptionPackage.ResourceNotFoundException;
-import RepsitoryPackage.TaskRepository;
-import TaskDTO.TaskRequestDTO;
-import TaskDTO.TaskResponseDTO;
-import TaskStatusPackage.TaskStatus;
+package com.dogratechnologies.task_management_app.Service;
+import com.dogratechnologies.task_management_app.EntityPackage.Task;
+import com.dogratechnologies.task_management_app.ExceptionPackage.ResourceNotFoundException;
+import com.dogratechnologies.task_management_app.RepsitoryPackage.TaskRepository;
+import com.dogratechnologies.task_management_app.TaskDTO.TaskRequestDTO;
+import com.dogratechnologies.task_management_app.TaskDTO.TaskResponseDTO;
+import com.dogratechnologies.task_management_app.TaskStatusPackage.TaskStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -34,7 +34,7 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    @CacheEvict(value = "tasks", key = "#id")
+    @Cacheable(value = "tasks", key = "#id")
     public TaskResponseDTO getTaskById(Long id)
     {
         Task task = taskRepo.findById(id).orElseThrow(
@@ -49,7 +49,7 @@ public class TaskServiceImpl implements TaskService{
         Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
 
         Page<Task>tasks = (status != null)
-                ?taskRepo.findByStatus(status, pageable)
+                ?taskRepo.findByStatus(status,  pageable)
                 : taskRepo.findAll(pageable);
 
         return tasks.map(this ::MapToDTO);
@@ -63,7 +63,7 @@ public class TaskServiceImpl implements TaskService{
                 .orElseThrow(() -> new ResourceNotFoundException("Task not found with id: "+ id));
         task.setTitle(dto.getTitle());
         task.setDescription(dto.getDescription());
-        if(task.getStatus() != null)
+        if(dto.getStatus() != null)
         {
             task.setStatus(dto.getStatus());
         }

@@ -1,6 +1,6 @@
-package TaskDTO;
+package com.dogratechnologies.task_management_app.TaskDTO;
 
-import TaskStatusPackage.TaskStatus;
+import com.dogratechnologies.task_management_app.TaskStatusPackage.TaskStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package Service;
+package com.dogratechnologies.task_management_app.Service;
 
 
 import io.jsonwebtoken.Jwts;
@@ -6,6 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.hibernate.annotations.CurrentTimestamp;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
@@ -16,7 +17,7 @@ public class JwtService {
     @Value("${jwt.secret}")
     private String secret;
 
-    @Value("{jwt.expiration")
+    @Value("${jwt.expiration}")
     private long expiration;
 
     private Key getKey()

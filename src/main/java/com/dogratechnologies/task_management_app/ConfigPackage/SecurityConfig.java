@@ -1,6 +1,5 @@
 package com.dogratechnologies.task_management_app.ConfigPackage;
 
-import EntityPackage.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,12 +49,6 @@ public class SecurityConfig {
 
         urlSource.registerCorsConfiguration("/**", config);
         return urlSource;
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder()
-    {
-        return new BCryptPasswordEncoder();
     }
 
     @Bean

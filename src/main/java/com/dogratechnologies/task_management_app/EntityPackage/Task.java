@@ -1,6 +1,6 @@
-package EntityPackage;
+package com.dogratechnologies.task_management_app.EntityPackage;
 
-import TaskStatusPackage.TaskStatus;
+import com.dogratechnologies.task_management_app.TaskStatusPackage.TaskStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,11 +1,10 @@
-package TaskDTO;
+package com.dogratechnologies.task_management_app.TaskDTO;
 
-import TaskStatusPackage.TaskStatus;
+import com.dogratechnologies.task_management_app.TaskStatusPackage.TaskStatus;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
 @Data
 @NoArgsConstructor

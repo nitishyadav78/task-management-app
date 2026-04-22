@@ -1,6 +1,6 @@
-package RepsitoryPackage;
+package com.dogratechnologies.task_management_app.RepsitoryPackage;
 
-import EntityPackage.User;
+import com.dogratechnologies.task_management_app.EntityPackage.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

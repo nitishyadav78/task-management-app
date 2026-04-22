@@ -1,14 +1,14 @@
-package LoginRequestAndResponsePackage;
+package com.dogratechnologies.task_management_app.LoginRequestAndResponsePackage;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-public class LoginRequest {
+public class LoginResponse {
 
+    private String token;
     private String username;
-    private String password;
 }

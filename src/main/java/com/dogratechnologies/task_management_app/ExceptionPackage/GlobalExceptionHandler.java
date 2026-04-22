@@ -1,4 +1,4 @@
-package ExceptionPackage;
+package com.dogratechnologies.task_management_app.ExceptionPackage;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

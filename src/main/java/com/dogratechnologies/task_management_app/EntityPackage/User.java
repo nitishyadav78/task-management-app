@@ -1,4 +1,4 @@
-package EntityPackage;
+package com.dogratechnologies.task_management_app.EntityPackage;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,5 +24,6 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false, columnDefinition = "VARCHAR(255) DEFAULT 'ROLE_USER'")
     private String role = "ROLE_USER";
 }

@@ -1,4 +1,4 @@
-package ExceptionPackage;
+package com.dogratechnologies.task_management_app.ExceptionPackage;
 
 public class ResourceNotFoundException extends RuntimeException{
 

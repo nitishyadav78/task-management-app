@@ -1,7 +1,7 @@
 package com.dogratechnologies.task_management_app.ConfigPackage;
 
-import Service.JwtService;
-import Service.UserService;
+import com.dogratechnologies.task_management_app.Service.JwtService;
+import com.dogratechnologies.task_management_app.Service.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

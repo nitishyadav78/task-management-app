@@ -1,7 +1,7 @@
-package Service;
+package com.dogratechnologies.task_management_app.Service;
 
-import EntityPackage.User;
-import RepsitoryPackage.UserRepository;
+import com.dogratechnologies.task_management_app.EntityPackage.User;
+import com.dogratechnologies.task_management_app.RepsitoryPackage.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,10 +23,13 @@ public class UserService implements UserDetailsService {
         User user = userRepo.findByUsername(username)
                 .orElseThrow(()->new UsernameNotFoundException("User Not found: " + username));
 
+        String role = (user.getRole() != null && !user.getRole().isEmpty())
+                ? user.getRole()
+                : "ROLE_USER";
         return org.springframework.security.core.userdetails.User
                 .withUsername(user.getUsername())
                 .password(user.getPassword())
-                .authorities(user.getRole())
+                .authorities(user.getRole().replace("ROLE_", ""))
                 .build();
     }
 
@@ -35,6 +38,7 @@ public class UserService implements UserDetailsService {
         User user = User.builder()
                 .username(username)
                 .password(passwordEncoder.encode(rawPassword))
+                .role("ROLE_USER")
                 .build();
         return userRepo.save(user);
     }
